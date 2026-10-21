@@ -21,7 +21,7 @@ export function PhoneTable({ phones, getStatus }: PhoneTableProps) {
         {phones.map((phone) => (
           <tr key={phone.id}>
             <td>
-              {phone.emoji} {phone.name}
+              {phone.name}
             </td>
             <td>{phone.brand}</td>
             <td>{phone.price.toLocaleString('ru-RU')} ₽</td>

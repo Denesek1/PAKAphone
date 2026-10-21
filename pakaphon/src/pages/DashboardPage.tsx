@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import type { Phone, PhoneStatus } from '../types/phone';
 import { fetchPhonesMock } from '../mocks/dashboardMock';
 import { PageHeader } from '../components/PageHeader';
@@ -54,10 +55,15 @@ export function DashboardPage() {
   return (
     <div className="app">
       <PageHeader
-        title="📱 PAKAphon"
-        subtitle="Магазин смартфонов с умным поиском"
-        tag="mock-данные"
+        title="Новые смартфоны по лучшим ценам"
+        subtitle="Оригинальные устройства с гарантией. Быстрая доставка по всей стране."
       />
+
+      <div className="hero-actions">
+        <Link to="/product/1" className="btn btn-primary">
+          Перейти в каталог
+        </Link>
+      </div>
 
       {isLoading && <EmptyState message="Загрузка каталога..." />}
       {error && <EmptyState message={error} />}
@@ -70,7 +76,7 @@ export function DashboardPage() {
             avgPrice={avgPrice}
           />
           <section>
-            <h2>Каталог</h2>
+            <h2>Популярные модели</h2>
             <PhoneTable phones={items} getStatus={getStatus} />
           </section>
         </>
